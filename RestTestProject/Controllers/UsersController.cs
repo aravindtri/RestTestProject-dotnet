@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Http.Headers;
 
 namespace RestTestProject.Controllers
@@ -39,8 +40,7 @@ namespace RestTestProject.Controllers
         /// <responseType>
         ///     <see cref="List{User}" />
         /// </responseType>
-        /// <response code="201">Returns the newly created item</response>
-        /// <response code="200">If the item is null</response>
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(List<User>), Description = "Returns all users")]
         [HttpPost]
         public async Task<ActionResult<List<User>>> AddUser(User user)
         {

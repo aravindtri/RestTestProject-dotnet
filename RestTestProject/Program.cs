@@ -21,11 +21,13 @@ builder.Services.AddSwaggerGen(options =>
             Name = "Example License",
             Url = new Uri("https://example.com/license")
         }
+
     });
 
     // using System.Reflection;
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+    options.EnableAnnotations();
 });
 
 // Add services to the container.
